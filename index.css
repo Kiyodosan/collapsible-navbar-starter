@@ -1,0 +1,65 @@
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+/* primary header */
+.logo {
+  margin: 2rem;
+}
+
+/* Contains image logo on the top-left side of the screen. */
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primary-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: hsl(0 0% 0% / 0.5);
+}
+
+/* The @supports code block checks to see if the CSS property in parentheses is supported by the browser. */
+/* Code within the code block allows us to change CSS if the property is supported. */
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-nav {
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+  }
+}
+
+.primary-nav a {
+  text-decoration: none;
+}
+
+/* Utilizes an attribute selector to only select elements with aria-hidden="true" */
+.primary-nav a > [aria-hidden="true"] {
+  font-weight: 700;
+  margin-inline-end: .75em;
+}
+
+/* //// Does the same thing as the CSS class above, but targets span elements instead. */
+/* .privary-nav a > span {
+  font-weight: 700;
+  margin-inline-end: .75em;
+} */
+
+@media (max-width: 35em) {
+  .primary-nav {
+    --gap: 2em;
+
+    position: fixed;
+    inset: 0 0 0 30%;
+    
+    flex-direction: column;
+    /* The min() function will choose the smallest of the size options, depending on the viewport size. */
+    padding: min(30vh, 10rem) 2rem;
+  }
+}
