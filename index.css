@@ -19,6 +19,10 @@
   justify-content: space-between;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 .primary-nav {
   list-style: none;
   padding: 0;
@@ -56,10 +60,25 @@
     --gap: 2em;
 
     position: fixed;
+    z-index: 1000;
     inset: 0 0 0 30%;
     
     flex-direction: column;
     /* The min() function will choose the smallest of the size options, depending on the viewport size. */
     padding: min(30vh, 10rem) 2rem;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    /* Add your own hamburger icon */
+    background: url('assets/images/icon-hamburger.svg');
+    background-repeat: no-repeat;
+    width: 2rem;
+    border: 0;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: 2rem;
   }
 }
